@@ -4,8 +4,7 @@ const tonsole = require('../index');
 const assert = require('chai').assert;
 const consoleCheck = require('./memory_console').consoleCheck;
 
-
-describe(`console.dir`, () => {
+describe(`dir`, () => {
     const checkDir = consoleCheck('dir');
 
     it('should return undefined for no args', () => {

@@ -1,7 +1,7 @@
 {
     "name": "tonsole",
     "version": "0.0.0",
-    "description": "Wrapper around console with return values.",
+    "description": "Wrapper around console that adds return values.",
     "keywords": [
 
     ],

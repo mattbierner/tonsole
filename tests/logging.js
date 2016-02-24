@@ -5,7 +5,7 @@ const assert = require('chai').assert;
 const consoleCheck = require('./memory_console').consoleCheck;
 
 ['log', 'info', 'error', 'warn'].forEach(method => {
-    describe(`console.${method}`, () => {
+    describe(method, () => {
         const checkLog = consoleCheck(method);
 
         it('should return undefined for no args', () => {
