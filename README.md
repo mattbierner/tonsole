@@ -8,7 +8,7 @@ const tonsole = require('tonsole');
 
 let compute = (data) => data ? process(data.value) : data;
 
-// normally we can't easily log what `compute` does without
+// Normally we can't easily log what `compute` does without
 // rewriting it to use statements
 compute = (data) => {
     if (data) {
@@ -16,7 +16,7 @@ compute = (data) => {
         console.log('Processed data: ', r);
         return r;
     }
-    console.error('Invalid data: ');
+    console.error('Invalid data: ', data);
     return data;
 };
 
@@ -24,7 +24,7 @@ compute = (data) => {
 // expressions, just as the ancient ones of Lisp intended.
 compute = (data) =>
     data
-        ?tonsole.log('Processed data: ', process(data.value)
+        ?tonsole.log('Processed data: ', process(data.value))
         :tonsole.error('Invalid data: ', data);
 ```
 
