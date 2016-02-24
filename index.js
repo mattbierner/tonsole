@@ -12,7 +12,7 @@ var NodeConsole = require('console').Console;
 var process = require('process');
 
 /**
- * Wrapper around node console that add return values.
+ * Wrapper around node console that adds return values.
  */
 
 var Console = exports.Console = (function () {
