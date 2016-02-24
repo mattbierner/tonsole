@@ -30,8 +30,8 @@ module.exports.consoleCheck = (funcName) =>
         const consoleErr = createMemoryStream();
         const consoleConsole = new console.Console(consoleOut, consoleErr);
 
-        const result = tonsoleConsole.log.apply(tonsoleConsole, arguments);
-        consoleConsole.log.apply(consoleConsole, arguments);
+        const result = tonsoleConsole[funcName].apply(tonsoleConsole, arguments);
+        consoleConsole[funcName].apply(consoleConsole, arguments);
         
         // make sure logged data is the same as builtin console.
         assert.deepEqual(consoleOut.data, tonsoleOut.data);

@@ -23,10 +23,30 @@ var Console = exports.Console = (function () {
     }
 
     _createClass(Console, [{
+        key: '_loggingProxy',
+        value: function _loggingProxy(methodName, args) {
+            this._inner[methodName].apply(this._inner, args);
+            return args[args.length - 1];
+        }
+    }, {
         key: 'log',
         value: function log() {
-            this._inner.log.apply(this._inner.log, arguments);
-            return arguments[arguments.length - 1];
+            return this._loggingProxy('log', arguments);
+        }
+    }, {
+        key: 'info',
+        value: function info() {
+            return this._loggingProxy('info', arguments);
+        }
+    }, {
+        key: 'warn',
+        value: function warn() {
+            return this._loggingProxy('warn', arguments);
+        }
+    }, {
+        key: 'error',
+        value: function error() {
+            return this._loggingProxy('error', arguments);
         }
     }]);
 
@@ -40,4 +60,7 @@ var Console = exports.Console = (function () {
 var globalConsole = new Console(process.stdout, process.stderr);
 
 var log = exports.log = globalConsole.log.bind(globalConsole);
+var info = exports.info = globalConsole.info.bind(globalConsole);
+var error = exports.error = globalConsole.error.bind(globalConsole);
+var warn = exports.warn = globalConsole.warn.bind(globalConsole);
 //# sourceMappingURL=index.js.map
