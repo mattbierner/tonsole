@@ -48,6 +48,12 @@ var Console = exports.Console = (function () {
         value: function error() {
             return this._loggingProxy('error', arguments);
         }
+    }, {
+        key: 'dir',
+        value: function dir(obj, options) {
+            this._inner.dir(obj, options);
+            return obj;
+        }
     }]);
 
     return Console;
@@ -61,6 +67,8 @@ var globalConsole = new Console(process.stdout, process.stderr);
 
 var log = exports.log = globalConsole.log.bind(globalConsole);
 var info = exports.info = globalConsole.info.bind(globalConsole);
-var error = exports.error = globalConsole.error.bind(globalConsole);
 var warn = exports.warn = globalConsole.warn.bind(globalConsole);
+var error = exports.error = globalConsole.error.bind(globalConsole);
+
+var dir = exports.dir = globalConsole.dir.bind(globalConsole);
 //# sourceMappingURL=index.js.map

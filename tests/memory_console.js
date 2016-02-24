@@ -19,7 +19,9 @@ const createMemoryStream = () => {
     return out;
 };
 
-
+/**
+ * Test helper used to ensure tonsole and regular console log same values for `funcName`.
+ */
 module.exports.consoleCheck = (funcName) => 
     function (/*...*/) {
         const tonsoleOut = createMemoryStream();
